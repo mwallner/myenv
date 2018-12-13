@@ -11,7 +11,7 @@ if (Test-Path $poshGitPath) {
 }
 
 ### Docker ###
-Import-Module DockerCompletion -ErrorAction Continue
+Import-Module DockerCompletion -ErrorAction SilentlyContinue
 
 function Remove-StoppedContainers {
   docker container rm $(docker container ls -q)
