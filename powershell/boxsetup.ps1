@@ -1,14 +1,14 @@
 $ErrorActionPreference = 'Stop'
 
 if (-Not (Get-Command choco -ErrorAction SilentlyContinue)) {
-  Set-ExecutionPolicy Bypass -Scope Process -Force; 
+  Set-ExecutionPolicy Bypass -Scope Process -Force;
   Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
 Import-Module (Join-Path $env:ChocolateyInstall "helpers\chocolateyProfile.psm1")
 
 function ipkg($pkgid) {
-  choco install -y -r --no-progress $pkgid 
+  choco install -y -r --no-progress $pkgid
 }
 
 ipkg conemu
