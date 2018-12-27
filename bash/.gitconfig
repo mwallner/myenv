@@ -1,0 +1,13 @@
+[user]
+  signingkey = BAAED4BD184146A9
+  email = schusterfredl@mwallner.net
+  name = Manfred Wallner
+[commit]
+  gpgsign = true
+[merge]
+  tool = meld
+[diff]
+  guitool = meld
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+ 
