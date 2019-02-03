@@ -14,12 +14,15 @@ yaIn google-chrome
 yaIn vlc
 yaIn virtualbox
 yaIn vagrant
+yaIn rdesktop
+
 yaIn git
 yaIn vim
 yaIn code
 yaIn qtcreator
 yaIn meld
 
+yaIn powershell
 yaIn sbt
 yaIn maven
 yaIn scala211
