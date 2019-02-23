@@ -40,4 +40,5 @@ yaIn gimp
 yaIn displaycal
 yaIn synergy
 yaIn clementine
+yaIn kdenlive
 
