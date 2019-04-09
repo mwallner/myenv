@@ -33,9 +33,12 @@ ipkg rawtherapee
 ipkg IrfanView
 ipkg vlc
 ipkg greenshot
+ipkg GoogleChrome
+ipkg gpg4win
 
 ipkg make
 ipkg maven
 ipkg pandoc
 ipkg pester
 ipkg psake
+ipkg sbt
