@@ -15,3 +15,15 @@ cd ~
 mv .bashrc .bashrc_bk
 ln -s myenv/bash/.* .
 ```
+
+## dot-source PowerShell profile in Windows
+```
+code $profile
+```
+add the following content to the file
+```
+$myenv = Join-Path ~ "\myenv\powershell\Microsoft.PowerShell_profile.ps1"
+if (Test-Path $myenv) {
+  . $myenv
+}
+```
