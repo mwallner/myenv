@@ -10,6 +10,16 @@ if (Test-Path $poshGitPath) {
   Import-Module $poshGitPath
 }
 
+## cd-fzf ##
+function cd-fzf {
+  if (Get-Command fzf -ErrorAction SilentlyContinue) {
+    Set-Location (Get-ChildItem ((Get-ChildItem $(fzf)).FullName)).Directory.FullName
+  }
+  else {
+    throw "could not find 'fzf'"
+  }
+}
+
 ### Docker ###
 Import-Module DockerCompletion -ErrorAction SilentlyContinue
 
@@ -66,7 +76,7 @@ function Get-ChildItemColor {
   #>
   $regex_opts = ([System.Text.RegularExpressions.RegexOptions]::IgnoreCase `
       -bor [System.Text.RegularExpressions.RegexOptions]::Compiled)
-  
+
   $fore = $Host.UI.RawUI.ForegroundColor
   $compressed = New-Object System.Text.RegularExpressions.Regex(
     '\.(zip|tar|gz|rar|7z)$', $regex_opts)
@@ -78,7 +88,7 @@ function Get-ChildItemColor {
     '\.(config|conf|ini)$', $regex_opts)
   $text_files = New-Object System.Text.RegularExpressions.Regex(
     '\.(txt|cfg|conf|ini|csv|log)$', $regex_opts)
-  
+
   Invoke-Expression ("Get-ChildItem $args") |
     ForEach-Object {
     $c = $fore
@@ -108,5 +118,5 @@ function Get-ChildItemColor {
 
 ### various aliases ###
 Set-Alias -Name sudo -Value Start-ElevatedProcess
-Set-Alias -Name c -Value code  
+Set-Alias -Name c -Value code
 Set-Alias -Name l -Value Get-ChildItemColor
