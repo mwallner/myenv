@@ -27,7 +27,6 @@ ipkg vagrant
 
 ipkg keepassxc
 ipkg clementine
-ipkg foxitreader
 ipkg gimp
 ipkg rawtherapee
 ipkg IrfanView
