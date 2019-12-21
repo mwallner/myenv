@@ -4,11 +4,9 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-### PoSh git ###
-$poshGitPath = "C:\tools\poshgit\dahlbyk-posh-git-9bda399\src\posh-git.psd1"
-if (Test-Path $poshGitPath) {
-  Import-Module $poshGitPath
-}
+Import-Module posh-git
+Import-Module oh-my-posh
+Set-Theme Paradox
 
 ## cd-fzf ##
 function cd-fzf {
@@ -21,31 +19,33 @@ function cd-fzf {
 }
 
 ### Docker ###
-Import-Module DockerCompletion -ErrorAction SilentlyContinue
+if (Get-Module DockerCompletion -ErrorAction SilentlyContinue) {
+  Import-Module DockerCompletion -ErrorAction SilentlyContinue
 
-function Remove-StoppedContainers {
-  docker container rm $(docker container ls -q)
-}
+  function Remove-StoppedContainers {
+    docker container rm $(docker container ls -q)
+  }
 
-function Remove-AllContainers {
-  docker container rm -f $(docker container ls -aq)
-}
+  function Remove-AllContainers {
+    docker container rm -f $(docker container ls -aq)
+  }
 
-function Get-ContainerIPAddress {
-  param (
-    [string] $id
-  )
-  & docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' $id
-}
+  function Get-ContainerIPAddress {
+    param (
+      [string] $id
+    )
+    & docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' $id
+  }
 
-function Add-ContainerIpToHosts {
-  param (
-    [string] $name
-  )
-  $ip = docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' $name
-  $newEntry = "$ip  $name  #added by d2h# `r`n"
-  $path = 'C:\Windows\System32\drivers\etc\hosts'
-  $newEntry + (Get-Content $path -Raw) | Set-Content $path
+  function Add-ContainerIpToHosts {
+    param (
+      [string] $name
+    )
+    $ip = docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' $name
+    $newEntry = "$ip  $name  #added by d2h# `r`n"
+    $path = 'C:\Windows\System32\drivers\etc\hosts'
+    $newEntry + (Get-Content $path -Raw) | Set-Content $path
+  }
 }
 
 function Start-ElevatedProcess {
@@ -90,7 +90,7 @@ function Get-ChildItemColor {
     '\.(txt|cfg|conf|ini|csv|log)$', $regex_opts)
 
   Invoke-Expression ("Get-ChildItem $args") |
-    ForEach-Object {
+  ForEach-Object {
     $c = $fore
     if ($_.GetType().Name -eq 'DirectoryInfo') {
       $c = 'DarkCyan'
