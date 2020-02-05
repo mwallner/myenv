@@ -11,13 +11,11 @@ function ipkg($pkgid) {
   choco install -y -r --no-progress $pkgid
 }
 
-ipkg conemu
 ipkg boxstarter
 ipkg 7zip
 ipkg git
 ipkg svn
 ipkg meld
-ipkg poshgit
 ipkg vscode
 ipkg notepadplusplus
 
@@ -29,7 +27,7 @@ ipkg keepassxc
 ipkg clementine
 ipkg gimp
 ipkg rawtherapee
-ipkg IrfanView
+ipkg nomacs
 ipkg vlc
 ipkg greenshot
 ipkg GoogleChrome
@@ -40,4 +38,4 @@ ipkg maven
 ipkg pandoc
 ipkg pester
 ipkg psake
-ipkg sbt
+ipkg rustup.install
