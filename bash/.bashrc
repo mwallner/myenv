@@ -152,8 +152,10 @@ if [ -f ~/.bash_aliases_private ]; then
     . ~/.bash_aliases_private
 fi
 
-if [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.bash-git-prompt/gitprompt.sh
-fi
+eval "$(starship init bash)"
+
+#if [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
+#    GIT_PROMPT_ONLY_IN_REPO=1
+#    source ~/.bash-git-prompt/gitprompt.sh
+#fi
 
