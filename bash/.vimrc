@@ -6,6 +6,8 @@ set shiftwidth=2
 set expandtab
 let mapleader=","
 map <leader>def <c-]><cr>
+set splitbelow
+set termwinsize=10x0
 
 filetype plugin on
 filetype indent on
@@ -19,3 +21,4 @@ let g:Tex_ViewRule_pdf = 'evince'
 set makeprg=make\ -j9
 nnoremap <F7> :make!<cr>
 nnoremap <F5> :!./main<cr>
+map <C-n> :NERDTreeToggle<CR>
