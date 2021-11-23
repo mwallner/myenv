@@ -1,12 +1,23 @@
 #!/bin/bash
 
 sudo pacman -Syy
-sudo pacman --noconfirm -S yaourt
+sudo pacman --noconfirm -S yay
 
-yaourt -Syy
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+
+yay -Syy
 
 yaIn() {
-  yaourt --noconfirm -S $1
+  yay --noconfirm -S $1
+}
+
+snapIn() {
+  sudo snap install $1 
+}
+
+snapInC() {
+  sudo snap install --classic $1
 }
 
 yaIn hunspell-de
@@ -18,20 +29,6 @@ yaIn rdesktop
 
 yaIn git
 yaIn vim
-yaIn code
-yaIn qtcreator
-yaIn meld
-
-yaIn powershell
-yaIn sbt
-yaIn maven
-yaIn scala211
-yaIn go
-yaIn jdk8-openjdk
-yaIn jre8-openjdk
-yaIn kotlin
-yaIn python
-yaIn python-pip
 
 yaIn aftershotpro3
 yaIn hugin
@@ -41,4 +38,10 @@ yaIn displaycal
 yaIn synergy
 yaIn clementine
 yaIn kdenlive
+
+snapInC powershell
+snapInC code
+snapIn discord
+snapIn hugo
+snapIn signal-desktop
 
