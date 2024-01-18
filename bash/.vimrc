@@ -2,6 +2,7 @@
 set number " display line numbers
 set cul " highlight current line
 syntax on " syntax coloring
+" colorscheme dracula
 set tabstop=2
 set shiftwidth=2
 set expandtab " tabs => spaces
