@@ -9,7 +9,10 @@ set expandtab " tabs => spaces
 let mapleader=","
 map <leader>def <c-]><cr>
 set splitbelow
-set termwinsize=10x0
+" set termwinsize=10x0
+
+" yank to system clipboard
+set clipboard^=unnamed,unnamedplus
 
 filetype plugin on
 filetype indent on
@@ -58,3 +61,8 @@ nnoremap <Leader>/ :Ack!<Space>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 
+"Ctrl+Shift+up move line above"
+nmap <C-S-Up> :m -2<CR>
+
+"Ctrl+Shift+down move line below
+nmap <C-S-Down> :m +1<CR>
