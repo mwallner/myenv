@@ -11,3 +11,7 @@
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   tree = log --color --graph --decorate --oneline --tags --all --abbrev-commit 
+[push]
+	autoSetupRemote = true
+[core]
+	editor = vim

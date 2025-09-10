@@ -66,3 +66,9 @@ nmap <C-S-Up> :m -2<CR>
 
 "Ctrl+Shift+down move line below
 nmap <C-S-Down> :m +1<CR>
+set nocompatible
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+cnoreabbrev pwsh pwsh -nologo
